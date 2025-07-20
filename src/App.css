@@ -1,38 +1,59 @@
+/* === Root App Styling === */
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* === Card Styling === */
 .card {
-  padding: 2em;
+  padding: 2rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  background-color: #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(62, 111, 244, 0.1);
+}
+
+/* === Info Text === */
 .read-the-docs {
-  color: #888;
+  color: #6b7280;
+  font-size: 0.95rem;
+  margin-top: 1rem;
 }
 
+/* === Logo Styling === */
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  height: 6rem;
+  padding: 1.5rem;
+  will-change: filter, transform;
+  transition: filter 0.3s ease, transform 0.3s ease;
 }
 
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em #3E6FF4aa);
+  transform: scale(1.05);
 }
 
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+/* === Spin Animation === */
 @keyframes logo-spin {
-  from {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
   }
 }
