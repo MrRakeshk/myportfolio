@@ -2,23 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Base Layer Styling */
 @layer base {
   html, body {
-    @apply bg-white text-black min-h-screen font-sans;
+    @apply bg-[#F9FAFB] text-gray-800 min-h-screen font-sans antialiased;
   }
 
   h1, h2, h3, h4 {
-    @apply font-semibold text-[#3E6FF4];
+    @apply font-bold text-[#1D4ED8];
+  }
+
+  p {
+    @apply leading-relaxed text-gray-700;
   }
 
   a {
-    @apply text-[#3E6FF4] hover:underline;
+    @apply text-[#1D4ED8] hover:underline font-medium transition;
+  }
+
+  button, input, textarea {
+    @apply focus:outline-none focus:ring-2 focus:ring-[#3E6FF4];
   }
 }
 
+/* Component Layer Styling */
 @layer components {
   .btn {
-    @apply px-6 py-2 rounded-lg font-semibold transition duration-300 ease-in-out;
+    @apply px-6 py-2 rounded-lg font-semibold transition-all duration-300 ease-in-out shadow-sm;
   }
 
   .btn-primary {
@@ -30,147 +40,147 @@
   }
 
   .card {
-    @apply bg-white border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-xl transition;
+    @apply bg-white border border-gray-200 rounded-2xl p-6 shadow-md hover:shadow-xl transition transform hover:-translate-y-1;
   }
 
   .card-title {
-    @apply text-xl font-bold text-[#3E6FF4] mb-2;
+    @apply text-2xl font-bold text-[#1D4ED8] mb-3;
   }
 
   .card-text {
-    @apply text-gray-700;
+    @apply text-gray-600;
   }
 
   .section {
-    @apply py-12 px-4 sm:px-8 lg:px-16;
+    @apply py-16 px-6 sm:px-10 lg:px-20;
   }
 
   .section-title {
-    @apply text-3xl font-extrabold text-[#3E6FF4] mb-6 border-b pb-2 border-[#3E6FF4];
+    @apply text-4xl font-extrabold text-[#1D4ED8] mb-8 border-b-4 border-[#3E6FF4] pb-3 inline-block;
   }
 
   .social-icon {
-    @apply text-[#3E6FF4] text-2xl sm:text-3xl md:text-4xl hover:text-black transition duration-300;
+    @apply text-[#3E6FF4] text-3xl hover:text-[#1D4ED8] transition duration-300 ease-in-out;
   }
 
   .icon-shadow {
-    @apply drop-shadow-md;
+    @apply drop-shadow-lg;
   }
 
   .contact-box {
-    @apply bg-white border border-gray-300 p-6 rounded-lg shadow-sm hover:shadow-md transition;
+    @apply bg-white border border-gray-300 p-8 rounded-xl shadow-lg hover:shadow-2xl transition;
   }
 
   .form-label {
-    @apply block mb-1 font-medium text-gray-800;
+    @apply block mb-2 font-medium text-gray-700;
   }
 
   .form-input {
-    @apply w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-[#3E6FF4];
+    @apply w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-[#1D4ED8];
   }
 
   .form-textarea {
-    @apply w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-[#3E6FF4];
+    @apply w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-[#1D4ED8];
   }
 
   .navbar {
-    @apply flex items-center justify-between p-4 bg-white shadow-md;
+    @apply flex items-center justify-between p-6 bg-white shadow-md sticky top-0 z-50;
   }
 
   .nav-link {
-    @apply text-[#3E6FF4] font-medium hover:text-black px-3;
+    @apply text-[#1D4ED8] font-semibold hover:text-blue-900 px-4 py-2;
   }
 
   .footer {
-    @apply bg-white text-black py-6 text-center border-t border-gray-200;
+    @apply bg-white text-gray-700 py-6 text-center border-t border-gray-200;
   }
 
   .info-card {
-    @apply flex items-center gap-4 bg-white border border-gray-300 p-4 rounded-md shadow-sm;
+    @apply flex items-start gap-4 bg-white border border-gray-300 p-5 rounded-lg shadow-md;
   }
 
   .info-card-icon {
-    @apply text-[#3E6FF4] text-2xl sm:text-3xl;
+    @apply text-[#1D4ED8] text-3xl;
   }
 
   .info-card-text {
-    @apply text-gray-800 text-sm sm:text-base;
+    @apply text-gray-800 text-base;
   }
 
   .resume-box {
-    @apply bg-white border border-[#3E6FF4] p-6 rounded-md shadow hover:shadow-lg;
+    @apply bg-white border-l-4 border-[#3E6FF4] p-6 rounded-lg shadow-lg;
   }
 
   .resume-title {
-    @apply text-xl font-bold text-[#3E6FF4] mb-2;
+    @apply text-xl font-bold text-[#1D4ED8] mb-2;
   }
 
   .resume-subtitle {
-    @apply text-sm text-gray-600 mb-4;
+    @apply text-sm text-gray-500 mb-4;
   }
 
   .timeline {
-    @apply relative pl-8 border-l border-[#3E6FF4];
+    @apply relative pl-10 border-l-4 border-[#3E6FF4];
   }
 
   .timeline-item {
-    @apply mb-6 relative;
+    @apply mb-10 relative;
   }
 
   .timeline-dot {
-    @apply absolute -left-3 top-1 w-4 h-4 bg-[#3E6FF4] rounded-full;
+    @apply absolute -left-3 top-1 w-5 h-5 bg-[#3E6FF4] border-4 border-white rounded-full shadow;
   }
 
   .timeline-content {
-    @apply bg-white border border-gray-300 p-4 rounded-lg shadow;
+    @apply bg-white border border-gray-200 p-5 rounded-xl shadow-lg;
   }
 
   .project-card {
-    @apply bg-white border border-gray-200 rounded-lg overflow-hidden shadow hover:shadow-lg transition;
+    @apply bg-white border border-gray-200 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition transform hover:-translate-y-1;
   }
 
   .project-img {
-    @apply w-full h-40 object-cover;
+    @apply w-full h-48 object-cover;
   }
 
   .project-body {
-    @apply p-4;
+    @apply p-5;
   }
 
   .project-title {
-    @apply text-[#3E6FF4] text-lg font-semibold;
+    @apply text-[#3E6FF4] text-xl font-semibold mb-1;
   }
 
   .project-desc {
-    @apply text-sm text-gray-700;
+    @apply text-sm text-gray-600;
   }
 
   .scroll-top-btn {
-    @apply fixed bottom-6 right-6 bg-[#3E6FF4] text-white p-3 rounded-full shadow-lg hover:bg-blue-800 transition;
+    @apply fixed bottom-6 right-6 bg-[#3E6FF4] text-white p-4 rounded-full shadow-lg hover:bg-blue-800 transition duration-300 z-50;
   }
 
   .divider {
-    @apply border-t border-gray-300 my-6;
+    @apply border-t border-gray-300 my-8;
   }
 
   .tag {
-    @apply inline-block bg-[#3E6FF4] text-white text-xs px-3 py-1 rounded-full mr-2;
+    @apply inline-block bg-[#1D4ED8] text-white text-xs px-3 py-1 rounded-full mr-2 shadow;
   }
 
   .badge {
-    @apply text-xs font-medium text-white bg-blue-600 rounded-full px-2.5 py-0.5;
+    @apply text-xs font-semibold text-white bg-blue-600 rounded-full px-3 py-0.5;
   }
 
   .highlight {
-    @apply bg-[#3E6FF4] text-white px-1.5 py-0.5 rounded;
+    @apply bg-[#3E6FF4] text-white px-2 py-1 rounded-md;
   }
 
   .input-error {
-    @apply border-red-500 text-red-600;
+    @apply border-red-500 text-red-600 bg-red-50;
   }
 
   .text-blue {
-    @apply text-[#3E6FF4];
+    @apply text-[#1D4ED8];
   }
 
   .hover-scale {
@@ -178,6 +188,7 @@
   }
 
   .icon-box {
-    @apply flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 text-[#3E6FF4] text-xl;
+    @apply flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 text-[#3E6FF4] text-2xl shadow-sm;
   }
 }
+
