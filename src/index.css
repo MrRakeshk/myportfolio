@@ -28,10 +28,11 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
+    @apply text-black;
   }
 
   a {
-    @apply transition duration-200;
+    @apply transition duration-200 text-[#3E6FF4] hover:text-black;
   }
 
   img {
@@ -64,7 +65,7 @@
     @apply px-6 py-2 rounded-md font-semibold transition hover:bg-[#3E6FF4] hover:text-white;
   }
 
-  /* Hero Section */
+  /* Hero Section (LEAVE UNTOUCHED) */
   .hero-section {
     @apply w-full min-h-screen flex flex-col justify-center items-center bg-white px-4 text-center;
   }
@@ -98,12 +99,42 @@
   }
 
   .card-description {
-    @apply text-base text-gray-700;
+    @apply text-base text-black;
+  }
+
+  /* Contact & Online Link Cards */
+  .info-card {
+    @apply flex items-center gap-4 bg-white border border-gray-200 rounded-xl p-4 text-black shadow;
+  }
+
+  .info-card-icon {
+    @apply text-[#3E6FF4] text-2xl;
+  }
+
+  .info-card-title {
+    @apply text-sm font-semibold text-[#3E6FF4];
+  }
+
+  .info-card-content {
+    @apply text-base font-medium text-black;
   }
 
   /* Resume & Contact */
   .cta-group {
     @apply flex flex-wrap gap-4 justify-center mb-6;
+  }
+
+  /* Contact Box / CTA Area */
+  .contact-box {
+    @apply bg-white text-black border border-gray-200 rounded-2xl p-6 text-center shadow-md;
+  }
+
+  .contact-heading {
+    @apply text-lg font-semibold text-[#3E6FF4] mb-2;
+  }
+
+  .contact-message {
+    @apply text-base text-black mb-4;
   }
 
   /* Footer */
@@ -122,7 +153,7 @@
 
   /* Input Styles */
   .input-field {
-    @apply border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#3E6FF4];
+    @apply border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#3E6FF4] text-black bg-white;
   }
 
   .label {
@@ -130,7 +161,7 @@
   }
 }
 
-/* === UTILITIES (OPTIONAL CUSTOM SHORTCUTS) === */
+/* === UTILITIES === */
 @layer utilities {
   .text-brand {
     color: #3E6FF4;
@@ -150,5 +181,13 @@
 
   .rounded-xl {
     border-radius: 1rem;
+  }
+
+  .matte-text {
+    @apply text-black font-medium;
+  }
+
+  .section-white {
+    @apply bg-white text-black;
   }
 }
