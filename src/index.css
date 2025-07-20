@@ -2,205 +2,192 @@
 @tailwind components;
 @tailwind utilities;
 
+/* === BASE VARIABLES === */
 @layer base {
-  html, body {
-    @apply bg-gradient-to-br from-white via-blue-50 to-blue-100 text-gray-800 min-h-screen font-sans;
+  :root {
+    /* Main Colors */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --primary: 226 89% 60%; /* #3E6FF4 */
+    --primary-foreground: 0 0% 100%;
+    --border: 220 13% 91%;
+    --radius: 0.75rem;
+
+    /* Muted */
+    --muted: 220 14% 75%;
+    --muted-foreground: 215 20% 35%;
+
+    /* Secondary UI */
+    --accent: 226 89% 60%;
+    --accent-foreground: 0 0% 100%;
   }
 
-  h1, h2, h3, h4 {
-    @apply font-semibold text-[#3E6FF4];
+  body {
+    @apply bg-white text-black antialiased tracking-wide;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    @apply text-black;
   }
 
   a {
-    @apply text-[#3E6FF4] hover:text-blue-700 hover:underline;
+    @apply transition duration-200 text-[#3E6FF4] hover:text-black;
+  }
+
+  img {
+    @apply max-w-full h-auto;
+  }
+
+  button {
+    @apply focus:outline-none;
   }
 }
 
+/* === REUSABLE COMPONENTS === */
 @layer components {
-  .btn {
-    @apply px-6 py-2 rounded-lg font-semibold transition duration-300 ease-in-out shadow-md hover:shadow-xl;
+  /* Highlight Text */
+  .highlight-text {
+    color: #3E6FF4;
   }
 
+  /* Main Buttons */
   .btn-primary {
-    @apply bg-gradient-to-r from-[#3E6FF4] to-blue-600 text-white hover:scale-105;
+    background-color: #3E6FF4;
+    color: white;
+    @apply px-6 py-2 rounded-md font-semibold shadow-md transition hover:bg-blue-700;
   }
 
   .btn-outline {
-    @apply border-2 border-[#3E6FF4] text-[#3E6FF4] hover:bg-[#3E6FF4] hover:text-white hover:scale-105;
+    background-color: transparent;
+    border: 2px solid #3E6FF4;
+    color: #3E6FF4;
+    @apply px-6 py-2 rounded-md font-semibold transition hover:bg-[#3E6FF4] hover:text-white;
   }
 
+  /* Hero Section (LEAVE UNTOUCHED) */
+  .hero-section {
+    @apply w-full min-h-screen flex flex-col justify-center items-center bg-white px-4 text-center;
+  }
+
+  .hero-title {
+    @apply text-4xl md:text-5xl font-bold text-[#3E6FF4] mb-4;
+  }
+
+  .hero-subtitle {
+    @apply text-lg md:text-xl text-black mb-6 max-w-xl;
+  }
+
+  /* Social Icons */
+  .social-icon {
+    color: #3E6FF4;
+    @apply mx-2 text-2xl hover:text-black transition duration-300;
+  }
+
+  /* Section Titles */
+  .section-title {
+    @apply text-3xl font-bold text-[#3E6FF4] text-center mb-8;
+  }
+
+  /* Card UI */
   .card {
-    @apply bg-white border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-2xl transition transform hover:-translate-y-1;
+    @apply bg-white border border-gray-200 rounded-2xl shadow-md p-6 transition hover:shadow-lg;
   }
 
   .card-title {
-    @apply text-2xl font-bold text-[#3E6FF4] mb-3 animate-fadeInUp;
+    @apply text-xl font-semibold text-[#3E6FF4] mb-2;
   }
 
-  .card-text {
-    @apply text-gray-700 text-base leading-relaxed;
+  .card-description {
+    @apply text-base text-black;
   }
 
-  .section {
-    @apply py-16 px-6 sm:px-10 lg:px-20 bg-gradient-to-b from-blue-50 to-white;
-  }
-
-  .section-title {
-    @apply text-4xl font-extrabold text-[#3E6FF4] mb-10 border-b-2 pb-4 border-blue-400 animate-fadeInDown;
-  }
-
-  .social-icon {
-    @apply text-[#3E6FF4] text-3xl hover:text-pink-500 transition-transform transform hover:scale-125 duration-300;
-  }
-
-  .contact-box {
-    @apply bg-white border border-gray-300 p-6 rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1;
-  }
-
-  .form-label {
-    @apply block mb-2 font-semibold text-gray-700;
-  }
-
-  .form-input, .form-textarea {
-    @apply w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#3E6FF4] transition;
-  }
-
-  .navbar {
-    @apply flex items-center justify-between p-4 bg-white shadow-md sticky top-0 z-50 animate-fadeInDown;
-  }
-
-  .nav-link {
-    @apply text-[#3E6FF4] font-medium px-4 py-2 hover:text-blue-700 transition hover:bg-blue-100 rounded-md;
-  }
-
-  .footer {
-    @apply bg-gradient-to-t from-blue-100 to-white text-center py-6 border-t text-sm text-gray-600;
-  }
-
+  /* Contact & Online Link Cards */
   .info-card {
-    @apply flex items-center gap-4 bg-white border border-gray-300 p-4 rounded-md shadow-md hover:shadow-lg transition;
+    @apply flex items-center gap-4 bg-white border border-gray-200 rounded-xl p-4 text-black shadow;
   }
 
   .info-card-icon {
-    @apply text-[#3E6FF4] text-3xl;
+    @apply text-[#3E6FF4] text-2xl;
   }
 
-  .info-card-text {
-    @apply text-gray-800 text-base;
+  .info-card-title {
+    @apply text-sm font-semibold text-[#3E6FF4];
   }
 
-  .resume-box {
-    @apply bg-white border border-[#3E6FF4] p-6 rounded-xl shadow hover:shadow-lg;
+  .info-card-content {
+    @apply text-base font-medium text-black;
   }
 
-  .resume-title {
-    @apply text-2xl font-bold text-[#3E6FF4] mb-3;
+  /* Resume & Contact */
+  .cta-group {
+    @apply flex flex-wrap gap-4 justify-center mb-6;
   }
 
-  .resume-subtitle {
-    @apply text-sm text-gray-600 mb-4;
+  /* Contact Box / CTA Area */
+  .contact-box {
+    @apply bg-white text-black border border-gray-200 rounded-2xl p-6 text-center shadow-md;
   }
 
-  .timeline {
-    @apply relative pl-8 border-l-2 border-[#3E6FF4];
+  .contact-heading {
+    @apply text-lg font-semibold text-[#3E6FF4] mb-2;
   }
 
-  .timeline-item {
-    @apply mb-10 relative;
+  .contact-message {
+    @apply text-base text-black mb-4;
   }
 
-  .timeline-dot {
-    @apply absolute -left-3 top-1 w-5 h-5 bg-[#3E6FF4] border-2 border-white rounded-full shadow-md;
+  /* Footer */
+  .footer {
+    @apply w-full bg-[#f9f9f9] text-black text-center py-6 mt-10 border-t;
   }
 
-  .timeline-content {
-    @apply bg-white border border-gray-300 p-4 rounded-lg shadow-md;
+  .footer a {
+    @apply text-[#3E6FF4] font-medium hover:underline;
   }
 
-  .project-card {
-    @apply bg-white border border-gray-200 rounded-xl shadow hover:shadow-lg transform hover:scale-105 transition;
+  /* Responsive Grid */
+  .grid-container {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
   }
 
-  .project-img {
-    @apply w-full h-48 object-cover rounded-t-xl;
+  /* Input Styles */
+  .input-field {
+    @apply border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#3E6FF4] text-black bg-white;
   }
 
-  .project-body {
-    @apply p-4;
-  }
-
-  .project-title {
-    @apply text-[#3E6FF4] text-lg font-semibold;
-  }
-
-  .project-desc {
-    @apply text-sm text-gray-700;
-  }
-
-  .scroll-top-btn {
-    @apply fixed bottom-6 right-6 bg-[#3E6FF4] text-white p-3 rounded-full shadow-lg hover:bg-blue-800 transform hover:scale-110 transition;
-  }
-
-  .divider {
-    @apply border-t border-gray-300 my-8;
-  }
-
-  .tag {
-    @apply inline-block bg-gradient-to-r from-[#3E6FF4] to-blue-500 text-white text-sm px-3 py-1 rounded-full mr-2;
-  }
-
-  .badge {
-    @apply text-xs font-medium text-white bg-blue-600 rounded-full px-3 py-1;
-  }
-
-  .highlight {
-    @apply bg-yellow-200 text-black px-2 py-1 rounded-md;
-  }
-
-  .input-error {
-    @apply border-red-500 text-red-600 bg-red-50;
-  }
-
-  .text-blue {
-    @apply text-[#3E6FF4];
-  }
-
-  .hover-scale {
-    @apply transform hover:scale-110 transition-transform duration-300;
-  }
-
-  .icon-box {
-    @apply flex items-center justify-center w-14 h-14 rounded-full bg-blue-200 text-[#3E6FF4] text-2xl shadow-md hover:bg-blue-300;
+  .label {
+    @apply text-sm font-medium text-gray-700 mb-1;
   }
 }
 
+/* === UTILITIES === */
 @layer utilities {
-  .animate-fadeInUp {
-    animation: fadeInUp 0.8s ease-out;
-  }
-  .animate-fadeInDown {
-    animation: fadeInDown 0.8s ease-out;
+  .text-brand {
+    color: #3E6FF4;
   }
 
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .bg-brand {
+    background-color: #3E6FF4;
   }
 
-  @keyframes fadeInDown {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .hover-brand {
+    @apply transition duration-300 hover:text-[#3E6FF4];
+  }
+
+  .border-brand {
+    border-color: #3E6FF4;
+  }
+
+  .rounded-xl {
+    border-radius: 1rem;
+  }
+
+  .matte-text {
+    @apply text-black font-medium;
+  }
+
+  .section-white {
+    @apply bg-white text-black;
   }
 }
